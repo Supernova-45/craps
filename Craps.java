@@ -33,5 +33,13 @@ public class Craps {
          * a 7 is a loss
          * 
          */
+
+        in.close();
+    }
+
+    public static int roll(Scanner in) {
+        Die rollOne = new Die();
+        Die rollTwo = new Die();
+        return rollOne.getRoll() + rollTwo.getRoll();
     }
 }

@@ -1,3 +1,9 @@
+/**
+ * Replicates a game of Craps.
+ * @author Alexandra Kim
+ * @version 1-13-2021
+ */
+
 import java.util.Scanner;
 
 public class Craps {
@@ -81,6 +87,11 @@ public class Craps {
         in.close();
     }
 
+    /**
+     * Rolls two Die
+     * @return the sum of two die
+     */
+    
     public static int roll() {
         Die rollOne = new Die();
         Die rollTwo = new Die();

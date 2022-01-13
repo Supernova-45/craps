@@ -65,20 +65,6 @@ public class Craps {
                 }
             }
         }   
-        /**
-         * while the user wants to keep playing
-         * 
-         * roll the 2 die, save the value
-         * if it's a 7 or 11: autowin, play over
-         * if it's a 2,3,12: autolose, play over
-         * (can probably get a boolean method to streamline)
-         * 
-         * now you need another while loop for the game
-         * if the roll is the same as the first, that's a win
-         * a 7 is a loss
-         * 
-         */
-
         in.close();
     }
 

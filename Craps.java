@@ -5,7 +5,7 @@ public class Craps {
         Scanner in = new Scanner(System.in);
         System.out.println("LET'S PLAY CRAPS!");
         System.out.println("Do you need instructions (y/n)?");
-        if (in.nextLine().equals("") || in.nextLine().substring(0,1).equalsIgnoreCase("y")) {
+        if (in.nextLine().equals("") || (in.nextLine()).equalsIgnoreCase("y")) {
             System.out.println("1. Roll two six-sided dice.");
             System.out.println("2. a. On first roll, if you get a 7 or 11 you win!");
             System.out.println("2. b. On first roll, if you get a 2, 3, or 12 you lose!");
@@ -67,7 +67,7 @@ public class Craps {
             }
         }   
         System.out.println("Thanks for playing.");
-        
+
         in.close();
     }
 

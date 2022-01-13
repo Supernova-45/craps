@@ -43,17 +43,18 @@ public class Craps {
                 System.out.println("Let's see if you can roll it again before you roll a 7!");
                 notOver = true;
                 while (notOver = true) {
+                    // roll
                     System.out.print("Press <Enter> to roll...");
                     pause = in.nextLine();
                     roll = roll();
                     System.out.println("You rolled: " + roll);
-                    if (roll == 7) {
+                    if (roll == 7) { // autoloss
                         System.out.println("You lose. Want to play again? (y/n)");
                         if (in.nextLine().equals("") || in.nextLine().substring(0,1).equalsIgnoreCase("n")) {
                             playing = false;
                         }
                         notOver = false;
-                    } else if (roll == point) {
+                    } else if (roll == point) { // the only way to win
                         System.out.println("You rolled your point! You win! Want to play again? (y/n");
                         if (in.nextLine().equals("") || in.nextLine().substring(0,1).equalsIgnoreCase("n")) {
                             playing = false;
@@ -65,6 +66,8 @@ public class Craps {
                 }
             }
         }   
+        System.out.println("Thanks for playing.");
+        
         in.close();
     }
 

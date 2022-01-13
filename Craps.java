@@ -17,29 +17,28 @@ public class Craps {
         System.out.println();
         System.out.println("Good luck!");
 
-        int firstRoll;
-        boolean playing = true;
-        boolean notOver = true;
+        int firstRoll; // the "point"
+        boolean playing = true; // whether the user wants to keep playing
+        boolean notOver = true; // whether the current game is finished
 
         while (playing == true) {
-
             // first roll
             System.out.print("Press <Enter> to roll...");
             String pause = in.nextLine();
             firstRoll = roll();
             System.out.println("Your first roll is: " + firstRoll);
             System.out.println("That's your point.");
-            if (firstRoll == 7 || firstRoll == 11) {
+            if (firstRoll == 7 || firstRoll == 11) { // autowin
                 System.out.println("You win! Want to play again? (y/n)");
                 if (in.nextLine().equals("") || in.nextLine().substring(0,1).equalsIgnoreCase("n")) {
                     playing = false;
                 }
-            } else if (firstRoll == 2 || firstRoll == 3 || firstRoll == 12) {
+            } else if (firstRoll == 2 || firstRoll == 3 || firstRoll == 12) { // autolose
                 System.out.println("You lost, sorry. Want to play again? (y/n)");
                 if (in.nextLine().equals("") || in.nextLine().substring(0,1).equalsIgnoreCase("n")) {
                     playing = false;
                 }
-            } else {
+            } else { // keep rolling
                 System.out.println("Let's see if you can roll it again before you roll a 7!");
                 notOver = true;
                 while (notOver = true) {

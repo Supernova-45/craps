@@ -10,6 +10,7 @@ public class Craps {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.println("LET'S PLAY CRAPS!");
+        // instructions
         System.out.println("Do you need instructions (y/n)?");
         String instruct = in.nextLine();
         if (instruct.equals("") || instruct.substring(0,1).equalsIgnoreCase("y")) {
@@ -24,7 +25,7 @@ public class Craps {
         System.out.println();
         System.out.println("Good luck!");
 
-        int point;
+        int point; // keeps track of the user's point
         int roll;
         boolean playing = true; // whether the user wants to keep playing
         boolean notOver = true; // whether the current game is finished
@@ -91,7 +92,7 @@ public class Craps {
      * Rolls two Die
      * @return the sum of two die
      */
-    
+
     public static int roll() {
         Die rollOne = new Die();
         Die rollTwo = new Die();

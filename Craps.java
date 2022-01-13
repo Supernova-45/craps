@@ -5,7 +5,8 @@ public class Craps {
         Scanner in = new Scanner(System.in);
         System.out.println("LET'S PLAY CRAPS!");
         System.out.println("Do you need instructions (y/n)?");
-        if (in.nextLine().equals("") || (in.nextLine()).equalsIgnoreCase("y")) {
+        String instruct = in.nextLine();
+        if (instruct.equals("") || instruct.substring(0,1).equalsIgnoreCase("y")) {
             System.out.println("1. Roll two six-sided dice.");
             System.out.println("2. a. On first roll, if you get a 7 or 11 you win!");
             System.out.println("2. b. On first roll, if you get a 2, 3, or 12 you lose!");
@@ -22,6 +23,7 @@ public class Craps {
         boolean playing = true; // whether the user wants to keep playing
         boolean notOver = true; // whether the current game is finished
 
+        outerloop:
         while (playing == true) {
             // first roll
             System.out.print("Press <Enter> to roll...");
@@ -31,17 +33,20 @@ public class Craps {
             System.out.println("That's your point.");
             if (point == 7 || point == 11) { // autowin
                 System.out.println("You win! Want to play again? (y/n)");
-                if (in.nextLine().equals("") || in.nextLine().substring(0,1).equalsIgnoreCase("n")) {
+                String playAgain = in.nextLine();
+                if (playAgain.equals("") || playAgain.substring(0,1).equalsIgnoreCase("n")) {
                     playing = false;
                 }
             } else if (point == 2 || point == 3 || point == 12) { // autolose
                 System.out.println("You lost, sorry. Want to play again? (y/n)");
-                if (in.nextLine().equals("") || in.nextLine().substring(0,1).equalsIgnoreCase("n")) {
+                String playAgain = in.nextLine();
+                if (playAgain.equals("") || playAgain.substring(0,1).equalsIgnoreCase("n")) {
                     playing = false;
                 }
             } else { // keep rolling
                 System.out.println("Let's see if you can roll it again before you roll a 7!");
                 notOver = true;
+                innerloop:
                 while (notOver = true) {
                     // roll
                     System.out.print("Press <Enter> to roll...");
@@ -50,16 +55,21 @@ public class Craps {
                     System.out.println("You rolled: " + roll);
                     if (roll == 7) { // autoloss
                         System.out.println("You lose. Want to play again? (y/n)");
-                        if (in.nextLine().equals("") || in.nextLine().substring(0,1).equalsIgnoreCase("n")) {
+                        String playAgain = in.nextLine();
+                        if (playAgain.equals("") || playAgain.substring(0,1).equalsIgnoreCase("n")) {
                             playing = false;
+                            notOver = false;
                         }
                         notOver = false;
+                        break innerloop;
                     } else if (roll == point) { // the only way to win
-                        System.out.println("You rolled your point! You win! Want to play again? (y/n");
-                        if (in.nextLine().equals("") || in.nextLine().substring(0,1).equalsIgnoreCase("n")) {
+                        System.out.println("You rolled your point! You win! Want to play again? (y/n)");
+                        String playAgain = in.nextLine();
+                        if (playAgain.equals("") || playAgain.substring(0,1).equalsIgnoreCase("n")) {
                             playing = false;
                         }
                         notOver = false;
+                        break innerloop;
                     } else {
                         System.out.println("Keep rolling...");
                     }

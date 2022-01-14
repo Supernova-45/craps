@@ -9,7 +9,15 @@ import java.util.Scanner;
 public class Craps {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        System.out.println("LET'S PLAY CRAPS!");
+        System.out.println("Would you like to play Craps (Y/n)?");
+        String playGame = in.nextLine();
+        if (playGame.equals("") || playGame.substring(0,1).equalsIgnoreCase("y")) {
+            System.out.println("LET'S PLAY CRAPS!");
+        }
+        else if (playGame.substring(0,1).equalsIgnoreCase("n")) {
+            System.out.println("Sad. Bye!");
+            System.exit(0); 
+        }  
         // instructions
         System.out.println("Do you need instructions (y/n)?");
         String instruct = in.nextLine();

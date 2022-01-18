@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Craps {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+        // sees if user wants to play and defaults to yes
         System.out.println("Would you like to play Craps (Y/n)?");
         String playGame = in.nextLine();
         if (playGame.equals("") || playGame.substring(0,1).equalsIgnoreCase("y")) {

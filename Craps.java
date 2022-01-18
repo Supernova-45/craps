@@ -9,30 +9,7 @@ import java.util.Scanner;
 public class Craps {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        // sees if user wants to play and defaults to yes
-        System.out.println("Would you like to play Craps (Y/n)?");
-        String playGame = in.nextLine();
-        if (playGame.equals("") || playGame.substring(0,1).equalsIgnoreCase("y")) {
-            System.out.println("LET'S PLAY CRAPS!");
-        }
-        else if (playGame.substring(0,1).equalsIgnoreCase("n")) {
-            System.out.println("Sad. Bye!");
-            System.exit(0); 
-        }  
-        // instructions
-        System.out.println("Do you need instructions (y/n)?");
-        String instruct = in.nextLine();
-        if (instruct.equals("") || instruct.substring(0,1).equalsIgnoreCase("y")) {
-            System.out.println("1. Roll two six-sided dice.");
-            System.out.println("2. a. On first roll, if you get a 7 or 11 you win!");
-            System.out.println("2. b. On first roll, if you get a 2, 3, or 12 you lose!");
-            System.out.println("2. c. Any other number you don't win or lose. The die roll becomes your 'point.'");
-            System.out.println("3. Keep rolling the dice again until:");
-            System.out.println("4. a. You roll the point again and win!");
-            System.out.println("4. b. or you roll a 7 and lose.)");
-        }
-        System.out.println();
-        System.out.println("Good luck!");
+        start();
 
         int point; // keeps track of the user's point
         int roll;
@@ -106,5 +83,38 @@ public class Craps {
         Die rollOne = new Die();
         Die rollTwo = new Die();
         return rollOne.getRoll() + rollTwo.getRoll();
+    }
+
+    /**
+     * Asks the user if they want to play and provides instructions
+     * @return nothing
+     */
+
+    public static void start() {
+        Scanner in = new Scanner(System.in);
+        // sees if user wants to play and defaults to yes
+        System.out.println("Would you like to play Craps (Y/n)?");
+        String playGame = in.nextLine();
+        if (playGame.equals("") || playGame.substring(0,1).equalsIgnoreCase("y")) {
+            System.out.println("LET'S PLAY CRAPS!");
+        }
+        else if (playGame.substring(0,1).equalsIgnoreCase("n")) {
+            System.out.println("Sad. Bye!");
+            System.exit(0); 
+        }  
+        // instructions
+        System.out.println("Do you need instructions (y/n)?");
+        String instruct = in.nextLine();
+        if (instruct.equals("") || instruct.substring(0,1).equalsIgnoreCase("y")) {
+            System.out.println("1. Roll two six-sided dice.");
+            System.out.println("2. a. On first roll, if you get a 7 or 11 you win!");
+            System.out.println("2. b. On first roll, if you get a 2, 3, or 12 you lose!");
+            System.out.println("2. c. Any other number you don't win or lose. The die roll becomes your 'point.'");
+            System.out.println("3. Keep rolling the dice again until:");
+            System.out.println("4. a. You roll the point again and win!");
+            System.out.println("4. b. or you roll a 7 and lose.)");
+        }
+        System.out.println();
+        System.out.println("Good luck!");
     }
 }
